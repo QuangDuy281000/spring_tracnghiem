@@ -1,5 +1,7 @@
 package com.bezkoder.springjwt.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -17,8 +19,8 @@ public class Cauhoi {
     private String tieude;
     private double diem;
 
-    @ManyToOne
-    @JoinColumn(name = "dethi_id")
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonBackReference
     private Dethi dethi;
 
     @OneToMany(mappedBy = "cauhoi")

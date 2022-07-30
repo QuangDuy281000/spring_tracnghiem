@@ -1,5 +1,6 @@
 package com.bezkoder.springjwt.models;
 
+import com.fasterxml.jackson.annotation.*;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -17,7 +18,8 @@ public class TrinhDo {
     private Long id;
     private String name;
 
-    @OneToMany(mappedBy = "trinhdo")
+    @JsonManagedReference
+    @OneToMany(mappedBy = "trinhdo",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Dethi> dethi =new HashSet<>();
 
 

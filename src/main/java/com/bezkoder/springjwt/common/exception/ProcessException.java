@@ -7,7 +7,12 @@ import java.util.ArrayList;
 import java.util.List;
 @Data
 public class ProcessException extends Exception{
-    private List<ErrorDto> errorDtoList=new ArrayList<>();
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -8714716579186434604L;
+	
+	private List<ErrorDto> errorDtoList=new ArrayList<>();
     public ProcessException(){
         super();
     }
